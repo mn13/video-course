@@ -30,6 +30,7 @@ function App() {
 
     useEffect(() => {
         connector.onStatusChange(async wallet => {
+            console.log('connector.onStatusChange', wallet)
             if (wallet?.connectItems?.tonProof && !('error' in wallet.connectItems.tonProof)) {
                 await tonProofApi.checkProof(wallet.connectItems.tonProof.proof, wallet.account);
 

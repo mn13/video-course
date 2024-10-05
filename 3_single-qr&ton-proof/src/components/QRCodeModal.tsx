@@ -13,6 +13,7 @@ export const QRCodeModal: FunctionComponent<{ isOpen: boolean; onClose: () => vo
     useEffect(() => {
         (async () => {
             const payload = await tonProofApi.generatePayload();
+            console.log('walletInfo', walletInfo, payload)
             if (walletInfo) {
                 setWalletConnectionURL(
                     connector.connect({ bridgeUrl: walletInfo.bridgeUrl, universalLink: walletInfo.universalLink }, payload)
